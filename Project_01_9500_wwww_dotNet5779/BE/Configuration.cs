@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-	class Configuration
+	public class Configuration
 	{
-		static int MinimumNumberOfLessons;
-		static int MaximumTesterAge;
-		static int MinimumTraineeAge;
-		static int TimeRangeBetweenTests;
-
+		public static int MinimumNumberOfLessons = 20;
+		public static int MaximumTesterAge = 40;
+		public static int MinimumTraineeAge = 18;
+		public static int TimeRangeBetweenTests;
+		public static int RunningIDNumber=00000000;
+		
 	}
 
 }

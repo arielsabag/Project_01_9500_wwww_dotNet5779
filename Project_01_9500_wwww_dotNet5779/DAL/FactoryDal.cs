@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
-namespace DS
+namespace DAL
 {
-	
-    public class DataSource
+	public class FactoryDal
 	{
-		
-    }
+		public static Idal getDal()
+		{
+			return new Dal_imp();
+		}
+	}
 }

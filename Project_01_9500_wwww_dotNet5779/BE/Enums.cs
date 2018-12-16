@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-	class Enums
-	{
-		enum CarType { PrivateVehicle, TwoWheeledVehicle, MediumTruck, HeavyTruck };
+	public enum CarType { PrivateVehicle, TwoWheeledVehicle, MediumTruck, HeavyTruck };
 
-		enum GearboxType { Manual, Automatic };
+	public enum GearboxType { Manual, Automatic };
 
-		enum Gender { Male, Female };
-		
-	}
+	public enum Gender { Male, Female };
 }

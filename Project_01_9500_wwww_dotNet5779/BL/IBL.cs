@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace BL
 {
-	public interface Idal
-	{
+    public interface IBL
+    {
 		/// <summary>
-		///  add tester to tester list
+		/// add tester to tester list
 		/// </summary>
 		/// <param name="t">tester</param>
 		void addTester(BE.Tester t);
@@ -21,7 +21,11 @@ namespace DAL
 		/// <summary>
 		/// update tester details
 		/// </summary>
+		/// <param name="t">tester</param>
 		void updateExistTesterDetails(BE.Tester t);
+
+
+
 
 		/// <summary>
 		/// add trainee/student to trainee list
@@ -29,42 +33,35 @@ namespace DAL
 		/// <param name="t">trainee</param>
 		void addTrainee(BE.Trainee t);
 		/// <summary>
-		/// sellete trainee from trainee list
+		/// dellete trainee from trainee list
 		/// </summary>
 		/// <param name="t">trainee</param>
 		void delleteTrainee(BE.Trainee t);
 		/// <summary>
 		/// update trainee details
 		/// </summary>
+		/// <param name="t"></param>
 		void updateExistTraineeDetails(BE.Trainee t);
 
+
+
+
 		/// <summary>
-		/// add test to tests list
+		/// add testto tests list
 		/// </summary>
 		/// <param name="t">test</param>
 		void addTest(BE.Test t);
 		/// <summary>
-		/// update tests when finished
+		/// update test when finished
 		/// </summary>
-		/// <param name="t"></param>
+		/// <param name="t">test</param>
 		void updateTestAtTheEnd(BE.Test t);
 
-		/// <summary>
-		/// list of all testers
-		/// </summary>
-		/// <returns>list of tester</returns>
 		List<BE.Tester> testersList();
-		/// <summary>
-		/// list of all trainees
-		/// </summary>
-		/// <returns>list of trainees</returns>
 		List<BE.Trainee> traineesList();
-		/// <summary>
-		/// list of all tests
-		/// </summary>
-		/// <returns>list of tests</returns>
 		List<BE.Test> testsList();
 
-
+		int traineeTestAmount(BE.Trainee t);
+		bool successfullyPassedDrivingTest(BE.Trainee t);
 	}
 }

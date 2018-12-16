@@ -3,127 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
+ id, firstName, lastName, gender, phone, address, dateOfBirth, carType, gearBoxType, schoolName, teacherName, lessonsAmount, toString,...
+	 */
 namespace BE
 {
-	class Trainee
+	public class Trainee
 	{
-		private int traineeId;
-
-		public int TraineeId
-		{
-			get { return traineeId; }
-			set { traineeId = value; }
-		}
-
-
-		private string traineeFirstName;
-
-		public string TraineeFirstName
-		{
-			get { return traineeFirstName; }
-			set { traineeFirstName = value; }
-		}
-
-		private string traineeLastName;
-
-		public string TraineeLastName
-		{
-			get { return traineeLastName; }
-			set { traineeLastName = value; }
-		}
-
-		private string traineeGender;
-
-		public string TraineeGender
-		{
-			get { return traineeGender; }
-			set { traineeGender = value; }
-		}
-
-		private int traineePhoneNumber;
-
-		public int TraineePhoneNumber
-		{
-			get { return traineePhoneNumber; }
-			set { traineePhoneNumber = value; }
-		}
-
-		private string traineeAddress;
-
-		public string TraineeAddress
-		{
-			get { return traineeAddress; }
-			set { traineeAddress = value; }
-		}
-
-
-		private string traineeDateOfBirth;
-
-		public string TraineeDateOfBirth
-		{
-			get { return TraineeDateOfBirth; }
-			set { TraineeDateOfBirth = value; }
-		}
-
-		private string traineeTypeOfVehicleHeStudied;
-
-		public string TraineeTypeOfVehicleHeStudied
-		{
-			get { return traineeTypeOfVehicleHeStudied; }
-			set { traineeTypeOfVehicleHeStudied = value; }
-		}
-
-
-		private string traineeTypeOfGear;
-
-		public string TraineeTypeOfGear
-		{
-			get { return traineeTypeOfGear; }
-			set { traineeTypeOfGear = value; }
-		}
-
-
-		private string traineeDrivingSchool;
-
-		public string TraineeDrivingSchool
-		{
-			get { return traineeDrivingSchool; }
-			set { traineeDrivingSchool = value; }
-		}
-
-		private string traineeDrivingTeacher;
-
-		public string TraineeDrivingTeacher
-		{
-			get { return traineeDrivingTeacher; }
-			set { traineeDrivingTeacher = value; }
-		}
-
-		private int traineeNumberOfDrivingLessons;
-
-		public int TraineeNumberOfDrivingLessons
-		{
-			get { return traineeNumberOfDrivingLessons; }
-			set { traineeNumberOfDrivingLessons = value; }
-		}
-
+		public int ID { get; set; }
+		public DateTime LastTest { get; set; }  
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public Gender Gender { get; set; }
+		public int PhoneNumber { get; set; }
+		public Address Address { get; set; }
+		public DateTime DateOfBirth { get; set; }
+		public CarType TypeOfVehicleHeStudied { get; set; }
+		public GearboxType TypeOfGear { get; set; }
+		 public string DrivingSchool { get; set; }
+		 public string DrivingTeacher { get; set; }
+		public int NumberOfDrivingLessons { get; set; }
+		public int amountOfTests { get; set; }
 		public override string ToString()
 		{
-
-			return "\nTester ID: " + TraineeId +
-				"\nnTrainee First Name: " + TraineeFirstName +
-				"\nnTrainee last name: " + TraineeLastName +
-				"\nnTrainee Gender: " + TraineeGender +
-				"\nnTrainee Phone Number: " + TraineePhoneNumber +
-				"\nnTrainee Addresss: " + TraineeAddress +
-				"\nnTrainee Date Of Birth: " + TraineeDateOfBirth +
-				"\nnTrainee Specializes In Car Of Type: " + TraineeTypeOfVehicleHeStudied +
-				"\nTrainee type of gear: " + TraineeTypeOfGear +
-				"\nTrainee driving school: " + TraineeDrivingSchool +
-				"\nTrainee driving teacher: " + TraineeDrivingTeacher +
-				"\nTrainee number of driving lessons: " + TraineeNumberOfDrivingLessons;
+			return "\nTester ID: " + ID +
+				"\nnTrainee First Name: " + FirstName +
+				"\nnTrainee last name: " + LastName +
+				"\nnTrainee Gender: " + Gender +
+				"\nnTrainee Phone Number: " + PhoneNumber +
+				"\nnTrainee Addresss: " + Address +
+				"\nnTrainee Date Of Birth: " + DateOfBirth +
+				"\nnTrainee Specializes In Car Of Type: " + TypeOfVehicleHeStudied +
+				"\nTrainee type of gear: " + TypeOfGear +
+				"\nTrainee driving school: " + DrivingSchool +
+				"\nTrainee driving teacher: " + DrivingTeacher +
+				"\nTrainee number of driving lessons: " + NumberOfDrivingLessons;
 		}
-
 	}
 }

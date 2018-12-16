@@ -4,119 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ testNumber, testerID, traineeID, dateToTest, dateAndHourToTest, getOutToTestAddress, keepDistance,reversePark,lookMirror, signals, grade, comments, tostring ,...
+ */
 namespace BE
 {
-	class Test
+	public class Test
 	{
-
-		private int testNumber;
-
-		public int TestNumber
-		{
-			get { return testNumber; }
-			set { testNumber = value; }
-		}
-
-		private int testerId;
-
-		public int TesterId
-		{
-			get { return testerId; }
-			set { testerId = value; }
-		}
-
-		private int traineeId;
-
-		public int TraineeId
-		{
-			get { return traineeId; }
-			set { traineeId = value; }
-		}
-
-		private string dateForTest;
-
-		public string DateForTest
-		{
-			get { return dateForTest; }
-			set { dateForTest = value; }
-		}
-
-		private string dateAndTimeForTest;
-
-		public string DateAndTimeForTest
-		{
-			get { return dateAndTimeForTest; }
-			set { dateAndTimeForTest = value; }
-		}
-
-		private string checkOutAddress;
-
-		public string CheckOutAddress
-		{
-			get { return checkOutAddress; }
-			set { checkOutAddress = value; }
-		}
-
-
-		private bool distancekeep;
-
-		public bool Distancekeep
-		{
-			get { return distancekeep; }
-			set { distancekeep = value; }
-		}
-
-
-		private bool parkingInReverse;
-
-		public bool ParkingInReverse
-		{
-			get { return parkingInReverse; }
-			set { parkingInReverse = value; }
-		}
-
-
-		private bool lookingAtMirrors;
-
-		public bool LookingAtMirrors
-		{
-			get { return lookingAtMirrors; }
-			set { lookingAtMirrors = value; }
-		}
-
-		private bool signals;
-
-		public bool Signals
-		{
-			get { return signals; }
-			set { signals = value; }
-		}
-
-		private int score;
-
-		public int Score
-		{
-			get { return score; }
-			set { score = value; }
-		}
-
-
-
-		private string testerComment;
-
-		public string TesterComment
-		{
-			get { return testerComment; }
-			set { testerComment = value; }
-
-		}
-
-
+		public int TestNumber { get; set; }
+		public int TesterId { get; set; }
+		public int TraineeId { get; set; }
+		public DateTime DateForTest { get; set; }
+		public DateTime DateAndTimeForTest { get; set; }
+		public Address CheckOutAddress { get; set; }
+		public bool Distancekeep { get; set; }
+		public bool ParkingInReverse { get; set; }
+		public bool LookingAtMirrors { get; set; }
+		public bool Signals { get; set; }
+		public bool Score { get; set; }
+		public string TesterComment { get; set; }
 		public override string ToString()
 		{
-
 			return "\nTest number : " + TestNumber +
-				"\n Tester id: " + testerId +
+				"\n Tester id: " + TesterId +
 				"\nTrainee Id : " + TraineeId +
 				"\nDate for test : " + DateForTest +
 				"\nDate and time for test : " + DateAndTimeForTest +
@@ -127,5 +37,6 @@ namespace BE
 				"\nSignals : " + Signals +
 				"\nScore: " + Score;
 		}
+		public CarType TestOnCarOfType { get; set; }
 	}
 }

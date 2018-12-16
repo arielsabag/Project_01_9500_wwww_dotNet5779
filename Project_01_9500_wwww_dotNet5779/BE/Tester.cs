@@ -6,129 +6,36 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-	class Tester
+	public class Tester
 	{
-
-		private int testerId;
-
-		public int TesterId
-		{
-			get { return testerId; }
-			set { testerId = value; }
-		}
-
-		private string testerLastName;
-
-		public string TesterLastName
-		{
-			get { return testerLastName; }
-			set { testerLastName = value; }
-		}
-
-
-		private string testerFirstName;
-
-		public string TesterFirstName
-		{
-			get { return testerFirstName; }
-			set { testerFirstName = value; }
-		}
-
-		private string testerDateOfBirth;
-
-		public string TesterDateOfBirth
-		{
-			get { return testerDateOfBirth; }
-			set { testerDateOfBirth = value; }
-		}
-
-
-		private string testerGender;
-
-		public string TesterGender
-		{
-			get { return testerGender; }
-			set { testerGender = value; }
-		}
-
-		private int testerPhoneNumber;
-
-		public int TesterPhoneNumber
-		{
-			get { return testerPhoneNumber; }
-			set { testerPhoneNumber = value; }
-		}
-
-
-		private string testerAddresss;
-
-		public string TesterAddresss
-		{
-			get { return testerAddresss; }
-			set { testerAddresss = value; }
-		}
-
-
-		private int testerYearsOfExperience;
-
-		public int TesterYearsOfExperience
-		{
-			get { return testerYearsOfExperience; }
-			set { testerYearsOfExperience = value; }
-		}
-
-
-		private int testerMaximumNumberOfWeeklytestsPossible;
-
-		public int TesterMaximumNumberOfWeeklytestsPossible
-		{
-			get { return testerMaximumNumberOfWeeklytestsPossible; }
-			set { testerMaximumNumberOfWeeklytestsPossible = value; }
-		}
-
-
-		private string testerSpecializesInCarOfType;
-
-		public string TesterSpecializesInCarOfType
-		{
-			get { return testerSpecializesInCarOfType; }
-			set { testerSpecializesInCarOfType = value; }
-		}
-
-
-		private string testerWorkingDaysAndHours;
-
-		public string TesterWorkingDaysAndHours
-		{
-			get { return testerWorkingDaysAndHours; }
-			set { testerWorkingDaysAndHours = value; }
-		}
-
-
-		private double testerMaximumDistanceForExam;
-
-		public double TesterMaximumDistanceForExam
-		{
-			get { return testerMaximumDistanceForExam; }
-			set { testerMaximumDistanceForExam = value; }
-		}
-
+	
+		public int Id { get; set; }
+		public string LastName { get; set; }
+		public string FirstName { get; set; }
+		public DateTime DateOfBirth { get; set; }
+		public Gender Gender { get; set; }
+		public int PhoneNumber { get; set; }
+		public Address Addresss { get; set; }
+		public int YearsOfExperience { get; set; }
+		public int MaximumNumberOfWeeklytestsPossible { get; set; }
+		public CarType SpecializesInCarOfType { get; set; }
+		public bool[][] WorkingDaysAndHours { get; set; }
+		public double MaximumDistanceForExam { get; set; }
 		public override string ToString()
 		{
-
-			return "\nTester ID : " + TesterId +
-				"\nTester last name : " + TesterLastName +
-				"\nTester First Name : " + TesterFirstName +
-				"\ntester Date Of Birth : " + testerDateOfBirth +
-				"\ntester Gender : " + testerGender +
-				"\nTester Phone Number : " + TesterPhoneNumber +
-				"\ntester Addresss : " + testerAddresss +
-				"\nTester Years Of Experience : " + TesterYearsOfExperience +
-				"\nTester Maximum Number Of Weekly tests Possible : " + TesterMaximumNumberOfWeeklytestsPossible +
-				"\nTester Specializes In Car Of Type : " + TesterSpecializesInCarOfType +
-				"\ntester Working Days And Hours: " + testerWorkingDaysAndHours +
-				"\ntester Maximum Distance For Exam " + testerMaximumDistanceForExam;
+			return "\nTester ID : " + Id +
+				"\nTester last name : " + LastName +
+				"\nTester First Name : " + FirstName +
+				"\ntester Date Of Birth : " + DateOfBirth +
+				"\ntester Gender : " + Gender +
+				"\nTester Phone Number : " + PhoneNumber +
+				"\ntester Addresss : " + Addresss +
+				"\nTester Years Of Experience : " + YearsOfExperience +
+				"\nTester Maximum Number Of Weekly tests Possible : " + MaximumNumberOfWeeklytestsPossible +
+				"\nTester Specializes In Car Of Type : " + SpecializesInCarOfType +
+				"\ntester Working Days And Hours: " + WorkingDaysAndHours +
+				"\ntester Maximum Distance For Exam " + MaximumDistanceForExam;
 		}
-
+		
 	}
 }
