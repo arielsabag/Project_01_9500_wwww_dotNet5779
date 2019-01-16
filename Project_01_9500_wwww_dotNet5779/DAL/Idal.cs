@@ -21,7 +21,9 @@ namespace DAL
 		/// <summary>
 		/// update tester details
 		/// </summary>
-		void updateExistTesterDetails(BE.Tester t);
+		void updateExistTester(BE.Tester t);
+
+
 
 		/// <summary>
 		/// add trainee/student to trainee list
@@ -36,7 +38,9 @@ namespace DAL
 		/// <summary>
 		/// update trainee details
 		/// </summary>
-		void updateExistTraineeDetails(BE.Trainee t);
+		void updateExistTrainee(BE.Trainee t);
+
+
 
 		/// <summary>
 		/// add test to tests list
@@ -49,22 +53,22 @@ namespace DAL
 		/// <param name="t"></param>
 		void updateTestAtTheEnd(BE.Test t);
 
+
+
 		/// <summary>
 		/// list of all testers
 		/// </summary>
 		/// <returns>list of tester</returns>
-		List<BE.Tester> testersList();
+		List<BE.Tester> getTestersList();
 		/// <summary>
 		/// list of all trainees
 		/// </summary>
 		/// <returns>list of trainees</returns>
-		List<BE.Trainee> traineesList();
+		List<BE.Trainee> getTraineesList();
 		/// <summary>
 		/// list of all tests
 		/// </summary>
 		/// <returns>list of tests</returns>
-		List<BE.Test> testsList();
-
-
+		List<BE.Test> getTestsList();
 	}
 }

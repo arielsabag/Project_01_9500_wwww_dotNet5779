@@ -1,0 +1,867 @@
+﻿<Window x:Class="PL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="298*"/>
+            <ColumnDefinition Width="84*"/>
+            <ColumnDefinition Width="411*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="1" Grid.ColumnSpan="3" Margin="0,0,0,22">
+            <TabControl.Items>
+
+                <TabItem Header="Tester">
+                    <TabControl>
+                        <TabControl.Items>
+
+                            <TabItem Header="add Tester">
+                                <Border Padding="10">
+                                    <Grid>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Row="0" Grid.Column="0">
+                                            <TextBlock Text="ID" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="idBox"/>
+                                            <TextBlock Text="Last name" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="lastNameBox"/>
+                                            <TextBlock Text="First name" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="firstNameBox"/>
+                                            <TextBlock Text="date of birth"/>
+                                            <DatePicker  Width="200" HorizontalAlignment="Left" Name="dateOfBirthTester"/>
+                                            <TextBlock Text="gender" />
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="genderTesterComboBox"/>
+                                            <TextBlock Text="phone number" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="phoneNumberBox" />
+
+                                            <TextBlock Text="adress" />
+                                            <Grid >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Grid.Column="0">
+                                                    <TextBlock Text="Street" HorizontalAlignment="Left" />
+                                                    <TextBox  Width="100"  HorizontalAlignment="Left" Name="streetBox"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="1">
+                                                    <TextBlock Text="Building number" HorizontalAlignment="Left"/>
+                                                    <TextBox Width="100" HorizontalAlignment="Left"  Name="buildingNumberBox"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Text="City" HorizontalAlignment="Left" />
+                                                    <TextBox Width="100" HorizontalAlignment="Left"  Name="cityBox"/>
+                                                </StackPanel>
+
+                                            </Grid>
+
+
+
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="0" Grid.Column="1">
+                                            <TextBlock Text="years of experience" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="yearsOfExperienceBox"/>
+                                            <TextBlock Text="max weekly tests" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="maxWeeklyTestsBox"/>
+                                            <TextBlock Text="car type specializes"/>
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="carTypeSpcializesComboBox"/>
+                                            <TextBlock Text="max distance exam" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="maxDistanceExamBox"/>
+                                            <Grid Width="350">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="sunday" Grid.Column="1"/>
+                                                <TextBlock Text="monday" Grid.Column="2"/>
+                                                <TextBlock Text="tuesday" Grid.Column="3"/>
+                                                <TextBlock Text="wednesday " Grid.Column="4"/>
+                                                <TextBlock Text=" thursday" Grid.Column="5"/>
+                                                <Rectangle Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle  Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle  Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle  Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle  Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+
+                                            </Grid>
+                                            <Grid  Width="350" Height="100"  Name="scheduleGridAddTester" >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Rectangle Grid.Row="0" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+
+                                                <Rectangle Grid.Row="0" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+
+                                                <Rectangle Grid.Row="0" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+
+                                                <Rectangle Grid.Row="0" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+
+                                                <Rectangle Grid.Row="0" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+
+                                                <Rectangle Grid.Row="0" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+
+
+
+                                                <TextBlock Text="09:00" Grid.Row="0"/>
+                                                <TextBlock Text="10:00" Grid.Row="1"/>
+                                                <TextBlock Text="11:00" Grid.Row="2"/>
+                                                <TextBlock Text="12:00" Grid.Row="3"/>
+                                                <TextBlock Text="13:00" Grid.Row="4"/>
+                                                <TextBlock Text="14:00" Grid.Row="5"/>
+                                                <TextBlock Text="15:00" Grid.Row="6"/>
+                                                <CheckBox Content="work" Grid.Row="0" Grid.Column="1" Name="c01Add"/>
+                                                <CheckBox Content="work" Grid.Row="1" Grid.Column="1" Name="c11Add"/>
+                                                <CheckBox Content="work" Grid.Row="2" Grid.Column="1" Name="c21Add"/>
+                                                <CheckBox Content="work" Grid.Row="3" Grid.Column="1" Name="c31Add"/>
+                                                <CheckBox Content="work" Grid.Row="4" Grid.Column="1" Name="c41Add"/>
+                                                <CheckBox Content="work" Grid.Row="5" Grid.Column="1" Name="c51Add"/>
+                                                <CheckBox Content="work" Grid.Row="6" Grid.Column="1" Name="c61Add"/>
+                                                <CheckBox Content="work"  Grid.Row="0" Grid.Column="2" Name="c02Add"/>
+                                                <CheckBox Content="work" Grid.Row="1" Grid.Column="2" Name="c12Add"/>
+                                                <CheckBox Content="work" Grid.Row="2" Grid.Column="2" Name="c22Add"/>
+                                                <CheckBox Content="work" Grid.Row="3" Grid.Column="2" Name="c32Add"/>
+                                                <CheckBox Content="work" Grid.Row="4" Grid.Column="2" Name="c42Add"/>
+                                                <CheckBox Content="work" Grid.Row="5" Grid.Column="2" Name="c52Add"/>
+                                                <CheckBox Content="work" Grid.Row="6" Grid.Column="2" Name="c62Add"/>
+                                                <CheckBox Content="work" Grid.Row="0" Grid.Column="3" Name="c03Add"/>
+                                                <CheckBox Content="work" Grid.Row="1" Grid.Column="3" Name="c13Add"/>
+                                                <CheckBox Content="work" Grid.Row="2" Grid.Column="3" Name="c23Add"/>
+                                                <CheckBox Content="work" Grid.Row="3" Grid.Column="3" Name="c33Add"/>
+                                                <CheckBox Content="work" Grid.Row="4" Grid.Column="3" Name="c43Add"/>
+                                                <CheckBox Content="work" Grid.Row="5" Grid.Column="3" Name="c53Add"/>
+                                                <CheckBox Content="work" Grid.Row="6" Grid.Column="3" Name="c63Add"/>
+                                                <CheckBox Content="work" Grid.Row="0" Grid.Column="4" Name="c04Add"/>
+                                                <CheckBox Content="work" Grid.Row="1" Grid.Column="4" Name="c14Add"/>
+                                                <CheckBox Content="work" Grid.Row="2" Grid.Column="4" Name="c24Add"/>
+                                                <CheckBox Content="work" Grid.Row="3" Grid.Column="4" Name="c34Add"/>
+                                                <CheckBox Content="work" Grid.Row="4" Grid.Column="4" Name="c44Add"/>
+                                                <CheckBox Content="work" Grid.Row="5" Grid.Column="4" Name="c54Add"/>
+                                                <CheckBox Content="work" Grid.Row="6" Grid.Column="4" Name="c64Add"/>
+                                                <CheckBox Content="work" Grid.Row="0" Grid.Column="5" Name="c05Add"/>
+                                                <CheckBox Content="work" Grid.Row="1" Grid.Column="5" Name="c15Add"/>
+                                                <CheckBox Content="work" Grid.Row="2" Grid.Column="5" Name="c25Add"/>
+                                                <CheckBox Content="work" Grid.Row="3" Grid.Column="5" Name="c35Add"/>
+                                                <CheckBox Content="work" Grid.Row="4" Grid.Column="5" Name="c45Add"/>
+                                                <CheckBox Content="work" Grid.Row="5" Grid.Column="5" Name="c55Add"/>
+                                                <CheckBox Content="work" Grid.Row="6" Grid.Column="5" Name="c65Add"/>
+
+
+
+                                            </Grid>
+                                        </StackPanel>
+                                        <Button Content="ADD" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Click="AddTesterButton_Click" />
+
+                                    </Grid>
+                                </Border>
+
+                            </TabItem>
+                            <TabItem Header="dellete Tester">
+                                <StackPanel>
+                                    <TextBlock Text="ID"/>
+                                    <TextBox Width="200" HorizontalAlignment="Left" Name="testerIdToDellete"/>
+                                    <TextBlock Text="Last name"/>
+                                    <TextBox Width="200" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="First name"/>
+                                    <TextBox Width="200" HorizontalAlignment="Left"/>
+                                    <Button Content="DELLETE" Height="50" Click="DelleteTesterButton_Click"/>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="update Tester">
+                                <Grid Name="ppp">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Button  Content=" Import tester list" Click="ImporeTesterListButton_Click" Grid.Row="0"/>
+                                    <ComboBox  Name="testerListToUpdate" SelectionChanged="testerListToUpdateSelectionChangedButton_Click" Grid.Row="1" Width="800" Height="20">
+                                    </ComboBox>
+                                    <Grid Grid.Row="2">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="293*"/>
+                                            <ColumnDefinition Width="97*"/>
+                                            <ColumnDefinition Width="390*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                                            <TextBlock Text="ID" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="idBoxToUpdate"/>
+                                            <TextBlock Text="Last name" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="lastNameBoxToUpdate"/>
+                                            <TextBlock Text="First name" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="firstNameBoxToUpdate"/>
+                                            <TextBlock Text="date of birth"/>
+                                            <DatePicker   Width="200" HorizontalAlignment="Left" Name="dateOfBirthTesterToUpdate"/>
+                                            <TextBlock Text="gender" />
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="genderTesterComboBoxToUpdate"/>
+                                            <TextBlock Text="phone number" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="phoneNumberBoxToUpdate" />
+
+                                            <TextBlock Text="adress" />
+                                            <Grid >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Grid.Column="0">
+                                                    <TextBlock Text="Street" HorizontalAlignment="Left" />
+                                                    <TextBox  Width="100"  HorizontalAlignment="Left" Name="streetToUpdate"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="1">
+                                                    <TextBlock Text="Building number" HorizontalAlignment="Left"/>
+                                                    <TextBox Width="100" HorizontalAlignment="Left"  Name="buildingNumberToUpdate"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Text="City" HorizontalAlignment="Left" />
+                                                    <TextBox Width="100" HorizontalAlignment="Left"  Name="cityToUpdate"/>
+                                                </StackPanel>
+
+                                            </Grid>
+
+
+
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="0" Grid.Column="2">
+                                            <TextBlock Text="years of experience" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="yearsOfExperienceBoxToUpdate"/>
+                                            <TextBlock Text="max weekly tests" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="maxWeeklyTestsBoxToUpdate"/>
+                                            <TextBlock Text="car type specializes"/>
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="carTypeSpcializesComboBoxToUpdate"/>
+                                            <TextBlock Text="max distance exam" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="maxDistanceExamBoxToUpdate"/>
+                                            <Grid Width="350">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="sunday" Grid.Column="1"/>
+                                                <TextBlock Text="monday" Grid.Column="2"/>
+                                                <TextBlock Text="tuesday" Grid.Column="3"/>
+                                                <TextBlock Text="wednesday " Grid.Column="4"/>
+                                                <TextBlock Text=" thursday" Grid.Column="5"/>
+                                                <Rectangle Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle  Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle  Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle  Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle  Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+
+                                            </Grid>
+                                            <Grid  Width="350" Height="100"  Name="scheduleGrid" >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+
+                                                </Grid.RowDefinitions>
+                                                <Rectangle Grid.Row="0" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="0" Stroke="Blue" Fill="Transparent"/>
+
+                                                <Rectangle Grid.Row="0" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="1" Stroke="Blue" Fill="Transparent"/>
+
+                                                <Rectangle Grid.Row="0" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="2" Stroke="Blue" Fill="Transparent"/>
+
+                                                <Rectangle Grid.Row="0" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="3" Stroke="Blue" Fill="Transparent"/>
+
+                                                <Rectangle Grid.Row="0" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="4" Stroke="Blue" Fill="Transparent"/>
+
+                                                <Rectangle Grid.Row="0" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="1" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="2" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="3" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="4" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="5" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+                                                <Rectangle Grid.Row="6" Grid.Column="5" Stroke="Blue" Fill="Transparent"/>
+
+
+
+                                                <TextBlock Text="09:00" Grid.Row="0"/>
+                                                <TextBlock Text="10:00" Grid.Row="1"/>
+                                                <TextBlock Text="11:00" Grid.Row="2"/>
+                                                <TextBlock Text="12:00" Grid.Row="3"/>
+                                                <TextBlock Text="13:00" Grid.Row="4"/>
+                                                <TextBlock Text="14:00" Grid.Row="5"/>
+                                                <TextBlock Text="15:00" Grid.Row="6"/>
+                                                <CheckBox Content="work" Grid.Row="0" Grid.Column="1" Name="c01"/>
+                                                <CheckBox Content="work" Grid.Row="1" Grid.Column="1" Name="c11"/>
+                                                <CheckBox Content="work" Grid.Row="2" Grid.Column="1" Name="c21"/>
+                                                <CheckBox Content="work" Grid.Row="3" Grid.Column="1" Name="c31"/>
+                                                <CheckBox Content="work" Grid.Row="4" Grid.Column="1" Name="c41"/>
+                                                <CheckBox Content="work" Grid.Row="5" Grid.Column="1" Name="c51"/>
+                                                <CheckBox Content="work" Grid.Row="6" Grid.Column="1" Name="c61"/>
+                                                <CheckBox Content="work"  Grid.Row="0" Grid.Column="2" Name="c02"/>
+                                                <CheckBox Content="work" Grid.Row="1" Grid.Column="2" Name="c12"/>
+                                                <CheckBox Content="work" Grid.Row="2" Grid.Column="2" Name="c22"/>
+                                                <CheckBox Content="work" Grid.Row="3" Grid.Column="2" Name="c32"/>
+                                                <CheckBox Content="work" Grid.Row="4" Grid.Column="2" Name="c42"/>
+                                                <CheckBox Content="work" Grid.Row="5" Grid.Column="2" Name="c52"/>
+                                                <CheckBox Content="work" Grid.Row="6" Grid.Column="2" Name="c62"/>
+                                                <CheckBox Content="work" Grid.Row="0" Grid.Column="3" Name="c03"/>
+                                                <CheckBox Content="work" Grid.Row="1" Grid.Column="3" Name="c13"/>
+                                                <CheckBox Content="work" Grid.Row="2" Grid.Column="3" Name="c23"/>
+                                                <CheckBox Content="work" Grid.Row="3" Grid.Column="3" Name="c33"/>
+                                                <CheckBox Content="work" Grid.Row="4" Grid.Column="3" Name="c43"/>
+                                                <CheckBox Content="work" Grid.Row="5" Grid.Column="3" Name="c53"/>
+                                                <CheckBox Content="work" Grid.Row="6" Grid.Column="3" Name="c63"/>
+                                                <CheckBox Content="work" Grid.Row="0" Grid.Column="4" Name="c04"/>
+                                                <CheckBox Content="work" Grid.Row="1" Grid.Column="4" Name="c14"/>
+                                                <CheckBox Content="work" Grid.Row="2" Grid.Column="4" Name="c24"/>
+                                                <CheckBox Content="work" Grid.Row="3" Grid.Column="4" Name="c34"/>
+                                                <CheckBox Content="work" Grid.Row="4" Grid.Column="4" Name="c44"/>
+                                                <CheckBox Content="work" Grid.Row="5" Grid.Column="4" Name="c54"/>
+                                                <CheckBox Content="work" Grid.Row="6" Grid.Column="4" Name="c64"/>
+                                                <CheckBox Content="work" Grid.Row="0" Grid.Column="5" Name="c05"/>
+                                                <CheckBox Content="work" Grid.Row="1" Grid.Column="5" Name="c15"/>
+                                                <CheckBox Content="work" Grid.Row="2" Grid.Column="5" Name="c25"/>
+                                                <CheckBox Content="work" Grid.Row="3" Grid.Column="5" Name="c35"/>
+                                                <CheckBox Content="work" Grid.Row="4" Grid.Column="5" Name="c45"/>
+                                                <CheckBox Content="work" Grid.Row="5" Grid.Column="5" Name="c55"/>
+                                                <CheckBox Content="work" Grid.Row="6" Grid.Column="5" Name="c65"/>
+
+
+
+                                            </Grid>
+                                        </StackPanel>
+                                        <Button Content="UPDATE" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="50" Click="UpdateTesterButton_Click" />
+
+                                    </Grid>
+                                </Grid>
+
+
+                            </TabItem>
+
+                        </TabControl.Items>
+                    </TabControl>
+
+                </TabItem>
+
+
+                <TabItem Header="Trainee">
+                    <TabControl>
+                        <TabControl.Items>
+                            <TabItem Header="add Trainee">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="300"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="89*"/>
+                                        <ColumnDefinition Width="301*"/>
+                                        <ColumnDefinition Width="390*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                                        <TextBlock Text="ID"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeIdToAdd"/>
+                                        <TextBlock Text="Last test"/>
+                                        <DatePicker Width="200" HorizontalAlignment="Left" Name="TraineeLastTestToAdd"/>
+                                        <TextBlock Text="First name"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" Name="TraineefirstNameToAdd"/>
+                                        <TextBlock Text="Last name"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeLastNameToAdd"/>
+                                        <TextBlock Width="200" HorizontalAlignment="Left" Text="Gender"/>
+                                        <ComboBox Width="200" HorizontalAlignment="Left" Name="TraineeGenderToAdd"/>
+
+                                        <TextBlock Text="phone number"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" Name="TraineePhoneNumberToAdd" />
+                                        <TextBlock Text="adress" />
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0">
+                                                <TextBlock Text="Street" HorizontalAlignment="Left" />
+                                                <TextBox  Width="100"  HorizontalAlignment="Left" Name="TraineeStreetToAdd"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1">
+                                                <TextBlock Text="Building number" HorizontalAlignment="Left"/>
+                                                <TextBox Width="100" HorizontalAlignment="Left"  Name="TraineeBuildingNumberToAdd"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="2">
+                                                <TextBlock Text="City" HorizontalAlignment="Left" />
+                                                <TextBox Width="100" HorizontalAlignment="Left"  Name="TraineeCityToAdd"/>
+                                            </StackPanel>
+
+                                        </Grid>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="2">
+                                        <TextBlock Text="Date of birth"/>
+                                        <DatePicker  Width="200" HorizontalAlignment="Left" Name="TraineedateOfBirthToAdd"/>
+
+                                        <TextBlock Text="Type Of VehicleHe Studied"/>
+                                        <ComboBox Width="200" HorizontalAlignment="Left" Name="TraineeTypeOfVehicleHeStudiedToAdd"/>
+                                        <TextBlock Text="Type Of Gear"/>
+                                        <ComboBox Width="200" HorizontalAlignment="Left" Name="TraineeTypeOfGearToAdd"/>
+                                        <TextBlock Text="Driving School"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeDrivingSchoolToAdd"/>
+                                        <TextBlock Text="Driving Teacher"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeDrivingTeacherToAdd"/>
+                                        <TextBlock Text="number of driving lesson"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeNumberOfDrivingLessonsToAdd"/>
+                                        <TextBlock Text="amount of tests"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeAmountOfTestsToAdd"/>
+                                    </StackPanel>
+                                    <Button Content="ADD" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="50" Margin="0,0,0,1" Click="AddTraineeButton_Click" />
+
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="dellete Trainee">
+                                <StackPanel>
+                                    <TextBlock Text="ID"/>
+                                    <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeIdToDellete"/>
+                                    <TextBlock Text="Last name"/>
+                                    <TextBox Width="200" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="First name"/>
+                                    <TextBox Width="200" HorizontalAlignment="Left"/>
+                                    <Button Content="DELLETE" Height="50" Click="DelleteTraineeButton_Click"/>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Header="update Trainee">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="7*"/>
+                                        <ColumnDefinition Width="26"/>
+                                        <ColumnDefinition Width="370*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Button Content=" Import trainee list" Click="ImportTraineeListButton_Click" Grid.Row="0" Grid.ColumnSpan="3"/>
+                                    <ComboBox  Name="traineeListToUpdate" SelectionChanged="traineeListToUpdateSelectionChangedButton_Click" Grid.Row="1" Grid.ColumnSpan="3" Width="800" Height="20">
+                                    </ComboBox>
+                                    <Grid Grid.Row="2" Grid.ColumnSpan="3">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Row="0" Grid.Column="0">
+                                            <TextBlock Text="ID" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeIdToUpdate"/>
+                                            <TextBlock Text="Last Test"/>
+                                            <DatePicker  Width="200" HorizontalAlignment="Left" Name="TraineeLastTestToUpdate"/>
+                                            <TextBlock Text="Last name" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TraineelastNameToUpdate"/>
+                                            <TextBlock Text="First name" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TraineefirstNameToUpdate"/>
+                                            <TextBlock Text="gender" />
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="TraineegenderToUpdate"/>
+                                            <TextBlock Text="phone number" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TraineephoneNumberToUpdate" />
+                                            <TextBlock Text="adress" />
+                                            <Grid >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Grid.Column="0">
+                                                    <TextBlock Text="Street" HorizontalAlignment="Left" />
+                                                    <TextBox  Width="100"  HorizontalAlignment="Left" Name="TraineeStreetToUpdate"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="1">
+                                                    <TextBlock Text="Building number" HorizontalAlignment="Left"/>
+                                                    <TextBox Width="100" HorizontalAlignment="Left"  Name="TraineeBuildingNumberToUpdate"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Text="City" HorizontalAlignment="Left" />
+                                                    <TextBox Width="100" HorizontalAlignment="Left"  Name="TraineeCityToUpdate"/>
+                                                </StackPanel>
+
+                                            </Grid>
+
+
+
+
+
+
+
+
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="0" Grid.Column="1">
+                                            <TextBlock Text="date of birth"/>
+                                            <DatePicker  Width="200" HorizontalAlignment="Left" Name="TraineeDateOfBirthToUpdate"/>
+                                            <TextBlock Text="Type of vihecle studied"/>
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="TraineeTypeOfVihecleStudiedToUpdate"/>
+                                            <TextBlock Text="Type of gear" />
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="TraineeTypeOfGearToUpdate"/>
+                                            <TextBlock Text="Driving school" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeDrivingSchoolToUpdate"/>
+
+                                            <TextBlock Text="Driving Teacher" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeDrivingTeacherToUpdate"/>
+                                            <TextBlock Text="Number of driving lesson" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeNumberOfDrivingLessonToUpdate"/>
+                                            <TextBlock Text="Amount Of Tests" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TraineeAmountOfTestsToUpdate"/>
+                                        </StackPanel>
+                                        <Button Content="UPDATE" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Click="UpdateTraineeButton_Click"  />
+
+                                    </Grid>
+                                </Grid>
+
+
+                            </TabItem>
+                        </TabControl.Items>
+                    </TabControl>
+
+                </TabItem>
+
+
+                <TabItem Header="Test">
+                    <TabControl>
+                        <TabControl.Items>
+                            <TabItem Header="add Test">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="119*"/>
+                                        <ColumnDefinition Width="271*"/>
+                                        <ColumnDefinition Width="390*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+
+                                        <TextBlock Text="tester id"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" Name="TestTesterIdToAdd"/>
+                                        <TextBlock Text="TraineeId"/>
+                                        <TextBox Width="200" HorizontalAlignment="Left" Name="TestTraineeIdToAdd"/>
+                                        <TextBlock Width="200" HorizontalAlignment="Left" Text="Date for test"/>
+                                        <DatePicker  Width="200" HorizontalAlignment="Left" Name="TestDateForTestToAdd"/>
+                                        <TextBlock Text="Date and time for Test" />
+                                        <DatePicker Width="200" HorizontalAlignment="Left" Name="TestDateAndTimeForTestToAdd"/>
+                                        <TextBlock Text="Check Out Address" />
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Grid.Column="0">
+                                                <TextBlock Text="Street" HorizontalAlignment="Left" />
+                                                <TextBox  Width="100"  HorizontalAlignment="Left" Name="TestStreetToAdd"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="1">
+                                                <TextBlock Text="Building number" HorizontalAlignment="Left"/>
+                                                <TextBox Width="100" HorizontalAlignment="Left"  Name="TestBuildingNumberToAdd"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="2">
+                                                <TextBlock Text="City" HorizontalAlignment="Left" />
+                                                <TextBox Width="100" HorizontalAlignment="Left"  Name="TestCityToAdd"/>
+                                            </StackPanel>
+
+                                        </Grid>
+
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="2">
+
+
+                                    </StackPanel>
+                                    <Button Content="ADD" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="50"  Click="AddTestButton_Click" Margin="0,0,0,1"  />
+
+                                </Grid>
+                            </TabItem>
+
+                            <TabItem Header="update Test at end">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="32"/>
+                                        <ColumnDefinition Width="57*"/>
+                                        <ColumnDefinition Width="317*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Button Content=" Import test list" Click="ImportTestListButton_Click"  Grid.Row="0" Grid.ColumnSpan="3"/>
+                                    <ComboBox  Name="testListToUpdate" Grid.Row="1" Grid.ColumnSpan="3" Width="800" Height="20" Margin="0,0,-20,1" SelectionChanged="testListToUpdateSelectionChangedButton_Click">
+                                    </ComboBox>
+                                    <Grid Grid.Row="2" Grid.ColumnSpan="3">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Row="0" Grid.Column="0">
+                                            <TextBlock Text="Test Number" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TestNumberToUpdateTest"/>
+                                            <TextBlock Text="Tester Id" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TestTesterIdToUpdate"/>
+                                            <TextBlock Text="Trainee Id" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TestTraineeIdToUpdate"/>
+                                            <TextBlock Text="date for test"/>
+                                            <DatePicker  Width="200" HorizontalAlignment="Left" Name="TestdateForTestTestToUpdate"/>
+                                            <TextBlock Text="Date and time for Test" />
+                                            <DatePicker Width="200" HorizontalAlignment="Left" Name="TestDateAndTimeForTestToUpdate"/>
+
+                                            <TextBlock Text="Check Out Address" />
+                                            <Grid >
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Grid.Column="0">
+                                                    <TextBlock Text="Street" HorizontalAlignment="Left" />
+                                                    <TextBox  Width="100"  HorizontalAlignment="Left" Name="TestStreetToUpdate"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="1">
+                                                    <TextBlock Text="Building number" HorizontalAlignment="Left"/>
+                                                    <TextBox Width="100" HorizontalAlignment="Left"  Name="TestBuildingNumberToUpdate"/>
+                                                </StackPanel>
+                                                <StackPanel Grid.Column="2">
+                                                    <TextBlock Text="City" HorizontalAlignment="Left" />
+                                                    <TextBox Width="100" HorizontalAlignment="Left"  Name="TestCityToUpdate"/>
+                                                </StackPanel>
+
+                                            </Grid>
+
+
+
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="0" Grid.Column="1">
+                                            <TextBlock Text="Distance keep" />
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="TestDistancekeepToUpdate"/>
+                                            <TextBlock Text="ParkingInReverse" />
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="TestParkingInReverseToUpdate"/>
+                                            <TextBlock Text="Looking At Mirrors"/>
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="TestLookingAtMirrorsToUpdate"/>
+                                            <TextBlock Text="Signals" />
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="TestSignalsToUpdate"/>
+                                            <TextBlock Text="Score" />
+                                            <ComboBox Width="200" HorizontalAlignment="Left" Name="TestScoreToUpdate"/>
+                                            <TextBlock Text="Tester comment" />
+                                            <TextBox Width="200" HorizontalAlignment="Left" Name="TestTesterCommentToUpdate"/>
+                                        </StackPanel>
+                                        <Button Content="UPDATE" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Click="UpdateTestButton_Click" />
+
+                                    </Grid>
+                                </Grid>
+
+                            </TabItem>
+                        </TabControl.Items>
+                    </TabControl>
+                </TabItem>
+                <TabItem Header="Tester list" Height="22" VerticalAlignment="Top">
+                    <Grid Name="a">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Button Content="Refresh"  Grid.Row="0" Grid.ColumnSpan="2" Click="RefreshTesterListButton_Click"/>
+                        <ScrollViewer  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="600">
+                            <StackPanel>
+                                <ListBox x:Name="testerListBox"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+
+
+
+
+                </TabItem>
+                <TabItem Header="Trainee list">
+                    <StackPanel>
+                        <Button Content="Refresh" Click="RefreshTraineeListButton_Click"/>
+                        <ScrollViewer  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="600">
+
+                            <ListBox x:Name="traineeListBox"/>
+                        </ScrollViewer>
+
+                    </StackPanel>
+
+                </TabItem>
+                <TabItem Header="Test list">
+                    <StackPanel>
+                        <Button Content="Refresh" Click="RefreshTestListButton_Click"/>
+                        <ScrollViewer  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="600">
+                            <ListBox x:Name="testListBox"/>
+                        </ScrollViewer>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="passed test">
+                    <StackPanel>
+                        <Button Content="Refresh" Click="RefreshSuccessfullyPassedTestTraineeListButton_Click"/>
+                        <ScrollViewer  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="600">
+                            <ListBox x:Name="successfullyPassedTestTraineeListBox"/>
+                        </ScrollViewer>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Test list by date">
+                    <StackPanel>
+                        <TextBlock Text="Pick A date"/>
+                        <DatePicker Name="TestListByDateDatePicker"/>
+                        <Button Content="View list" Click="RefreshTestListByDateTestListButton_Click"/>
+                        <ScrollViewer  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="600">
+                            <ListBox x:Name="testListByDateTestListBox"/>
+                        </ScrollViewer>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="available Testers In Date">
+                    <StackPanel>
+                        <Button Content="Refresh" Click="RefreshTestListButton_Click"/>
+                        <ScrollViewer  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="600">
+                            <ListBox x:Name="availableTestersInDateAndTimeTestListBox"/>
+                        </ScrollViewer>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="testers In Range">
+                    <StackPanel>
+                        <Button Content="Refresh" Click="RefreshTestListButton_Click"/>
+                        <ScrollViewer  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="600">
+                            <ListBox x:Name="testersInRangeTestListBox"/>
+                        </ScrollViewer>
+                    </StackPanel>
+                </TabItem>
+
+            </TabControl.Items>
+        </TabControl>
+
+
+    </Grid>
+</Window>

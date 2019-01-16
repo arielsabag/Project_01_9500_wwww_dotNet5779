@@ -21,7 +21,9 @@ namespace WpfApp1
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private BE.Tester be = new BE.Tester();
+		bool[][] A = new bool[6][5];
+		//private BE.Tester be = new BE.Tester();
+		BE.Address a;
 		private BL.IBL bl = new BL.Bl_imp();
 		public MainWindow()
 		{
@@ -31,8 +33,7 @@ namespace WpfApp1
 
 		private void button_Click(object sender, RoutedEventArgs e)
 		{
-			
-			
+			bl.addTester(new BE.Tester(1,"a","aa",DateTime.Now,BE.Gender.Male,1,a,1,1, BE.CarType.HeavyTruck,A,1));
 		}
 	}
 }

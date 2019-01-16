@@ -8,7 +8,6 @@ namespace DAL
 {
 	public class Dal_imp : Idal
 	{
-
 		bool exist = false;
 		// just for help
 		/// <summary>
@@ -50,7 +49,7 @@ namespace DAL
 			DS.DataSource.testerList.Remove(t);
 		}
 
-		void Idal.updateExistTesterDetails(BE.Tester t)
+		void Idal.updateExistTester(BE.Tester t)
 		{
 			exist = false;
 			for (int i = 0; i < DS.DataSource.testerList.Count; i++)
@@ -100,7 +99,7 @@ namespace DAL
 			DS.DataSource.traineeList.Remove(t);
 		}
 
-		void Idal.updateExistTraineeDetails(BE.Trainee t)
+		void Idal.updateExistTrainee(BE.Trainee t)
 		{
 			exist = false;
 			for (int i = 0; i < DS.DataSource.traineeList.Count; i++)
@@ -155,15 +154,15 @@ namespace DAL
 			}
 		}
 
-		List<BE.Tester> Idal.testersList()
+		List<BE.Tester> Idal.getTestersList()
 		{
 			return DS.DataSource.testerList.ToList();
 		}
-		List<BE.Trainee> Idal.traineesList()
+		List<BE.Trainee> Idal.getTraineesList()
 		{
 			return DS.DataSource.traineeList.ToList();
 		}
-		List<BE.Test> Idal.testsList()
+		List<BE.Test> Idal.getTestsList()
 		{
 			return DS.DataSource.testsList.ToList();
 		}

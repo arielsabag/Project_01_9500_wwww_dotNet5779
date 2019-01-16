@@ -22,7 +22,7 @@ namespace BL
 		/// update tester details
 		/// </summary>
 		/// <param name="t">tester</param>
-		void updateExistTesterDetails(BE.Tester t);
+		void updateExistTester(BE.Tester t);
 
 
 
@@ -41,7 +41,7 @@ namespace BL
 		/// update trainee details
 		/// </summary>
 		/// <param name="t"></param>
-		void updateExistTraineeDetails(BE.Trainee t);
+		void updateExistTrainee(BE.Trainee t);
 
 
 
@@ -57,11 +57,13 @@ namespace BL
 		/// <param name="t">test</param>
 		void updateTestAtTheEnd(BE.Test t);
 
-		List<BE.Tester> testersList();
-		List<BE.Trainee> traineesList();
-		List<BE.Test> testsList();
+		List<BE.Tester> getTestersList();
+		List<BE.Trainee> getTraineesList();
+		List<BE.Test> getTestsList();
 
 		int traineeTestAmount(BE.Trainee t);
 		bool successfullyPassedDrivingTest(BE.Trainee t);
+		List<BE.Test> testsListByDate(DateTime date);
+
 	}
 }

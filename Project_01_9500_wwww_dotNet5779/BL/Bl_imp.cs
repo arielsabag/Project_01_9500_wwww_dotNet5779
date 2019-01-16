@@ -8,7 +8,7 @@ namespace BL
 {
 	public class Bl_imp : IBL
 	{
-		bool exist = false;
+		bool exist = false; // using with it in  a lot of functions 
 		/// <summary>
 		/// get object of lower layer
 		/// </summary>
@@ -17,8 +17,13 @@ namespace BL
 
 		void IBL.addTester(BE.Tester t)
 		{
+
+			if (!IDValidator(t.Id))
+			{
+				throw new Exception("Error: Tester id is not valid");
+			}
 			exist = false;
-			foreach (BE.Tester item in dal.testersList())
+			foreach (BE.Tester item in dal.getTestersList())
 			{
 				if (t.Id == item.Id)
 				{
@@ -27,18 +32,19 @@ namespace BL
 			}
 			if (exist)
 			{
-				throw new Exception("tester already exist");
+				throw new Exception("Error: Tester already exist");
 			}
-			if (DateTime.Now.Year - t.DateOfBirth.Year > BE.Configuration.MaximumTesterAge)
+			if (DateTime.Now.Year - t.DateOfBirth.Year < BE.Configuration.MaximumTesterAge)
 			{
-				throw new Exception("Tester under the age of 40");
+				throw new Exception("Error: Can not add tester under the age of 40");
 			}
 			dal.addTester(t);
 		}
+
 		void IBL.delleteTester(BE.Tester t)
 		{
 			exist = false;
-			foreach (BE.Tester item in dal.testersList())
+			foreach (BE.Tester item in dal.getTestersList())
 			{
 				if (t.Id == item.Id)
 				{
@@ -47,34 +53,45 @@ namespace BL
 			}
 			if (!exist)
 			{
-				throw new Exception("can not remove tester that not exist");
+				throw new Exception("Error: Can not remove tester that is not exist");
 			}
 			dal.delleteTester(t);
 		}
-		void IBL.updateExistTesterDetails(BE.Tester t)
+
+		void IBL.updateExistTester(BE.Tester t)
 		{
-			exist = false;
-			for (int i = 0; i < dal.testersList().Count; i++)
+			if (!IDValidator(t.Id))
 			{
-				if (dal.testersList()[i].Id == t.Id)
+				throw new Exception("Error: Tester id is not valid");
+			}
+			exist = false;
+			for (int i = 0; i < dal.getTestersList().Count; i++)
+			{
+				if (dal.getTestersList()[i].Id == t.Id)
 				{
-					dal.testersList()[i] = t;
+					dal.getTestersList()[i] = t;
 					exist = true;
 				}
 			}
 			if (!exist)
 			{
-				throw new Exception("tester didnt exist");
+				throw new Exception("Error: Can not update tester that is not exist");
 			}
-			dal.updateExistTesterDetails(t);
+			dal.updateExistTester(t);
 		}
+
+
 
 
 
 		void IBL.addTrainee(BE.Trainee t)
 		{
+			if (!IDValidator(t.ID))
+			{
+				throw new Exception("Error: Trainee id is not valid");
+			}
 			exist = false;
-			foreach (BE.Trainee item in dal.traineesList())
+			foreach (BE.Trainee item in dal.getTraineesList())
 			{
 				if (t.ID == item.ID)
 				{
@@ -83,11 +100,11 @@ namespace BL
 			}
 			if (exist)
 			{
-				throw new Exception("Trainee already exist");
+				throw new Exception("Error:Can not add trainee that already exist");
 			}
 			if (DateTime.Now.Year - t.DateOfBirth.Year < BE.Configuration.MinimumTraineeAge)
 			{
-				throw new Exception("Cannot add trainee younger than 18 years");
+				throw new Exception("Error: Can not add trainee under the age of 18");
 			}
 			dal.addTrainee(t);
 		}
@@ -95,7 +112,7 @@ namespace BL
 		void IBL.delleteTrainee(BE.Trainee t)
 		{
 			exist = false;
-			foreach (BE.Trainee item in dal.traineesList())
+			foreach (BE.Trainee item in dal.getTraineesList())
 			{
 				if (t.ID == item.ID)
 				{
@@ -104,25 +121,30 @@ namespace BL
 			}
 			if (!exist)
 			{
-				throw new Exception("can not remove trainee that not exist");
+				throw new Exception("Error: can not remove trainee that is not exist");
 			}
 			dal.delleteTrainee(t);
 		}
-		void IBL.updateExistTraineeDetails(BE.Trainee t)
+
+		void IBL.updateExistTrainee(BE.Trainee t)
 		{
-			exist = false;
-			for (int i = 0; i < dal.traineesList().Count; i++)
+			if (!IDValidator(t.ID))
 			{
-				if (dal.traineesList()[i].ID == t.ID)
+				throw new Exception("Error: Trainee id is not valid");
+			}
+			exist = false;
+			for (int i = 0; i < dal.getTraineesList().Count; i++)
+			{
+				if (dal.getTraineesList()[i].ID == t.ID)
 				{
 					exist = true;
 				}
 			}
 			if (!exist)
 			{
-				throw new Exception("trainee didnt exist");
+				throw new Exception("Error: can not update trainee that is not exist");
 			}
-			dal.updateExistTraineeDetails(t);
+			dal.updateExistTrainee(t);
 		}
 
 
@@ -130,61 +152,63 @@ namespace BL
 		void IBL.addTest(BE.Test t)
 		{
 			int countTestsForTester = 0;
-			bool traineeAlreadyHaveTestInThatHour = false;
-			bool testerAlreadyHaveTestInThatHour = false;
-			bool sevenDaysDidNotPassed = false;
-			bool alreadyPassedTestOnThatTypeOfCar = false;
-			List<BE.Test> tempTestsList = dal.testsList();
-			List<BE.Trainee> tempTraineeList = dal.traineesList();
-			List<BE.Tester> tempTestersList = dal.testersList();
+			List<BE.Test> tempTestsList = dal.getTestsList();
+			List<BE.Trainee> tempTraineeList = dal.getTraineesList();
+			List<BE.Tester> tempTestersList = dal.getTestersList();
+
 			BE.Trainee tempTrainee = null;
 			BE.Tester tempTester = null;
 			BE.Test tempTest = null;
+
 			foreach (BE.Trainee item in tempTraineeList)// get the trainee in test
 			{
-				if (t.TraineeId == item.ID)
+				if (t.TraineeId.CompareTo(item.ID)==0)
 				{
 					tempTrainee = item;
+					break;
 				}
 			}
 			foreach (BE.Tester item in tempTestersList)// get the tester in test
 			{
-				if (t.TesterId == item.Id)
+				if (t.TesterId.CompareTo(item.Id)==0)
 				{
 					tempTester = item;
+					break;
 				}
 			}
-			foreach (BE.Test item in tempTestsList)// get the trainee in test
+
+
+			foreach (BE.Test item in tempTestsList)//if trainee Already Have Test In That Hour Exception
 			{
 				if ((t.TestNumber != item.TestNumber) && (t.TraineeId == item.TraineeId))
 				{
 					if (t.DateAndTimeForTest == item.DateAndTimeForTest)
 					{
-						traineeAlreadyHaveTestInThatHour = true;
+						throw new Exception("Error: Trainee already have test on that time: " + t.DateAndTimeForTest);
 					}
 				}
 			}
-			foreach (BE.Test item in tempTestsList)// get the trainee in test
+			foreach (BE.Test item in tempTestsList)// tester Already Have Test In That Hour Exception
 			{
 				if ((t.TestNumber != item.TestNumber) && (t.TesterId == item.TesterId))
 				{
 					if (t.DateAndTimeForTest == item.DateAndTimeForTest)
 					{
-						testerAlreadyHaveTestInThatHour = true;
+						throw new Exception("Error: Tester already have test in time: " + t.DateAndTimeForTest);
 					}
 				}
 			}
-			foreach (BE.Test item in tempTestsList)
+			foreach (BE.Test item in tempTestsList)// seven days didnt passed Exception
 			{
 				if (t.TraineeId == item.TraineeId)
 				{
 					if (DateTime.Now.Day - item.DateForTest.Day < 7)
 					{
-						sevenDaysDidNotPassed = true;
+						throw new Exception("Error: 7 days didnt pass since last test, last test was on: " + item.DateForTest.ToString());
 					}
 				}
 			}
-			foreach (BE.Test item in tempTestsList)
+			foreach (BE.Test item in tempTestsList)// already Passed Test On That Type Of Car Exception
 			{
 				if (t.TraineeId == item.TraineeId)
 				{
@@ -192,124 +216,113 @@ namespace BL
 					{
 						if (item.Score == true)
 						{
-							alreadyPassedTestOnThatTypeOfCar = true;
+							throw new Exception("Error: Trainee already passed test on car of type: " + t.TestOnCarOfType);
 						}
 					}
 				}
 			}
-			foreach (var item in tempTestsList)
+			foreach (BE.Test item in tempTestsList)// count Tests For Tester
 			{
-				if (item.TesterId==tempTester.Id)
+				if (item.TesterId.CompareTo(tempTester.Id)==0)
 				{
 					countTestsForTester++;
 				}
 			}
-			if (countTestsForTester>tempTester.MaximumNumberOfWeeklytestsPossible)
-			{
-				throw new Exception("tester passed the number of tests for week allowed");
-			}
-			if (((int)tempTest.DateAndTimeForTest.DayOfWeek>=1)&&((int)tempTest.DateAndTimeForTest.DayOfWeek<=5)&&((tempTest.DateAndTimeForTest.Hour>=9)&&(tempTest.DateAndTimeForTest.Hour<=15)))
-			{
-				if (!tempTester.WorkingDaysAndHours[tempTest.DateAndTimeForTest.Hour - 9][(int)tempTest.DateAndTimeForTest.DayOfWeek - 1])
-				{
-					throw new Exception("tester not available in this day and hour");
-				}
-			}
-		
 			if (tempTester.SpecializesInCarOfType != tempTrainee.TypeOfVehicleHeStudied)
 			{
-				throw new Exception(" the tester dont specialize on the type of car the trainee studied ");
+				throw new Exception("Error: Tester dont specialize on the type of car trainee is testing on ");
 			}
-			if (sevenDaysDidNotPassed)
+			if (countTestsForTester > tempTester.MaximumNumberOfWeeklytestsPossible)
 			{
-				throw new Exception("7 days didnt pass sincelast test");
+				throw new Exception("Error: Tester passed the amount of tests allowed for one week");
 			}
 			if (tempTrainee.NumberOfDrivingLessons < 20)
 			{
-				throw new Exception("can't add test before 20 lessons had done");
+				throw new Exception("Error: Can't add test for trainee before he passed 20 lessons");
 			}
-			if (alreadyPassedTestOnThatTypeOfCar)
+
+			if ((tempTest != null) && (((int)tempTest.DateAndTimeForTest.DayOfWeek >= 1) && ((int)tempTest.DateAndTimeForTest.DayOfWeek <= 5) && ((tempTest.DateAndTimeForTest.Hour >= 9) && (tempTest.DateAndTimeForTest.Hour <= 15))))
 			{
-				throw new Exception(" trainee already passed test on that type of car");
+				if (!tempTester.WorkingDaysAndHours[tempTest.DateAndTimeForTest.Hour - 9][(int)tempTest.DateAndTimeForTest.DayOfWeek - 1])
+				{
+					throw new Exception(" (bl_imp )***tester not available in this day and hour");
+				}
 			}
-			if (testerAlreadyHaveTestInThatHour)
-			{
-				throw new Exception("tester already have test in time: " + t.DateAndTimeForTest.Hour);
-			}
-			if (traineeAlreadyHaveTestInThatHour)
-			{
-				throw new Exception("trainee already have test in time: " + t.DateAndTimeForTest.Hour);
-			}
+
+
 			tempTrainee.amountOfTests++;
 			dal.addTest(t);
 		}
+
+
+
 		void IBL.updateTestAtTheEnd(BE.Test t)
 		{
 			exist = false;
-			for (int i = 0; i < dal.testsList().Count; i++)
+			for (int i = 0; i < dal.getTestsList().Count; i++)
 			{
-				if (dal.testsList()[i].TestNumber == t.TestNumber)
+				if (dal.getTestsList()[i].TestNumber == t.TestNumber)
 				{
 					exist = true;
 				}
 			}
 			if (!exist)
 			{
-				throw new Exception("test didnt exist");
+				throw new Exception("Error: can not update test that is not exist");
 			}
 			dal.updateTestAtTheEnd(t);
 		}
 
 
 
-		List<BE.Tester> IBL.testersList()
+		List<BE.Tester> IBL.getTestersList()
 		{
-			return dal.testersList();
+			return dal.getTestersList();
 		}
-		List<BE.Trainee> IBL.traineesList()
+		List<BE.Trainee> IBL.getTraineesList()
 		{
-			return dal.traineesList();
+			return dal.getTraineesList();
 		}
-		List<BE.Test> IBL.testsList()
+		List<BE.Test> IBL.getTestsList()
 		{
-			return dal.testsList();
+			return dal.getTestsList();
 		}
+
 
 		List<BE.Test> testsStandingOnCondition(Func <BE.Test,bool> function )
 		{
 			List<BE.Test> satisfiesCondition = new List<BE.Test>();
-			foreach (var item in dal.testsList())
+			foreach (BE.Test item in dal.getTestsList())
 			{
 				if (function(item))
 				{
 					satisfiesCondition.Add(item);
 				}
 			}
-			return new List<BE.Test>();
+			return satisfiesCondition;
 		}
 
 		IEnumerable<IGrouping<BE.CarType,BE.Tester>> testerListBySpecialization()
 		{
-			List<BE.Tester> tempTesterList = dal.testersList();
+			List<BE.Tester> tempTesterList = dal.getTestersList();
 			var groups = tempTesterList.GroupBy(s => s.SpecializesInCarOfType);
 			return groups;
-		
 		}
 		IEnumerable<IGrouping<string, BE.Trainee>> treaineeListByDrivingSchool()
 		{
-			List<BE.Trainee> tempTraineeList = dal.traineesList();
+			List<BE.Trainee> tempTraineeList = dal.getTraineesList();
 			var groups = tempTraineeList.GroupBy(s => s.DrivingSchool);
 			return groups;
 		}
 		IEnumerable<IGrouping<string, BE.Trainee>> treaineeListByteacher()
 		{
-			List<BE.Trainee> tempTraineeList = dal.traineesList();
+			List<BE.Trainee> tempTraineeList = dal.getTraineesList();
 			var groups = tempTraineeList.GroupBy(s => s.DrivingTeacher);
 			return groups;
 		}
 		IEnumerable<IGrouping<int, BE.Trainee>> treaineeListByTestsAmount()
 		{
-			List<BE.Trainee> tempTraineeList = dal.traineesList();
+			List<BE.Trainee> tempTraineeList = dal.getTraineesList();
 			var groups = tempTraineeList.GroupBy(s => s.amountOfTests);
 			return groups;
 		}
@@ -318,9 +331,9 @@ namespace BL
 		int IBL.traineeTestAmount(BE.Trainee t)
 		{
 			int count = 0;
-			foreach (BE.Test item in dal.testsList())
+			foreach (BE.Test item in dal.getTestsList())
 			{
-				if (t.ID == item.TraineeId)
+				if (t.ID.CompareTo(item.TraineeId)==0)
 				{
 					if (DateTime.Now> item.DateAndTimeForTest)
 					{
@@ -335,9 +348,9 @@ namespace BL
 
 		bool IBL.successfullyPassedDrivingTest(BE.Trainee t)
 		{
-			foreach (BE.Test item in dal.testsList())
+			foreach (BE.Test item in dal.getTestsList())
 			{
-				if ((item.TraineeId == t.ID) && (t.TypeOfVehicleHeStudied == item.TestOnCarOfType) && (item.Score))
+				if ((item.TraineeId.CompareTo(t.ID)==0) && (t.TypeOfVehicleHeStudied == item.TestOnCarOfType) && (item.Score==true))
 				{
 					return true;
 				}
@@ -346,18 +359,18 @@ namespace BL
 		}
 
 
-		List<BE.Test> testsListByDate(DateTime date)
+		public List<BE.Test> testsListByDate(DateTime date)
 		{
 			List<BE.Test> tempList = new List<BE.Test>();
-			foreach (var item in dal.testsList())
+			foreach (BE.Test item in dal.getTestsList())
 			{
-				if (item.DateAndTimeForTest.Month==date.Month)
-				{
-					if (item.DateAndTimeForTest.Day==date.Day)
+					if (item.DateAndTimeForTest.Month == date.Month)
 					{
-						tempList.Add(item);
-					}
-				}
+						if (item.DateAndTimeForTest.Day == date.Day)
+						{
+							tempList.Add(item);
+						}
+					}	
 			}
 			return tempList;
 		}
@@ -365,7 +378,7 @@ namespace BL
 		public List<BE.Tester> availableTestersInDateAndTime(DateTime t)
 		{
 			List<BE.Tester> tempList = new List<BE.Tester>(); 
-			foreach (var item in dal.testersList())
+			foreach (BE.Tester item in dal.getTestersList())
 			{
 				if (((int)t.DayOfWeek >= 1) && ((int)t.DayOfWeek <= 5) && ((t.Hour >= 9) && (t.Hour <= 15)))
 				{
@@ -384,7 +397,7 @@ namespace BL
 			Random rand = new Random();
 			int x = rand.Next(DateTime.Now.Millisecond);
 			
-			foreach (var item in dal.testersList())
+			foreach (BE.Tester item in dal.getTestersList())
 			{
 				if (address-x>=0)
 				{
@@ -394,5 +407,36 @@ namespace BL
 			}
 			return list;
 		}
+
+		/// <summary>
+		///  checks if id is valid
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		private static bool IDValidator(string id)
+		{
+			if (id.Length != 9)
+				return false;
+			int counter = 0, incNum = 0;
+			for (int i = 0; i < 8; i++)
+			{
+				incNum = (Convert.ToInt32(id[i].ToString())) * ((i % 2) + 1);//multiply digit by 1 or 2
+				if (incNum > 9)//sum the digits up and add to counter
+				{
+					counter += incNum - 9;
+				}
+				else
+				{
+					counter += incNum;
+				}
+			}
+			int diff = (counter % 10);
+			if (diff!=0)
+			{
+				diff = 10 - diff;
+			}
+			return (diff == Convert.ToInt32(id[8].ToString()));
+		}
 	}
 }
+

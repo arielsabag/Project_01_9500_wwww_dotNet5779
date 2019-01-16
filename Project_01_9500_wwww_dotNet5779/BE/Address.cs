@@ -8,8 +8,15 @@ namespace BE
 {
 	public struct Address
 	{
-		string street;
-		int buildingNumber;
-		string city;
+		public  string street;
+		public  int buildingNumber;
+		public  string city;
+		public override string ToString()
+		{
+			return "Street: " + street +
+				"  ,  Building Number: " + buildingNumber +
+				"  ,  City: " + city;
+		}
 	}
+	
 }

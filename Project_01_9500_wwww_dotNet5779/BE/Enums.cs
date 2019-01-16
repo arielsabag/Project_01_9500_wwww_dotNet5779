@@ -11,4 +11,6 @@ namespace BE
 	public enum GearboxType { Manual, Automatic };
 
 	public enum Gender { Male, Female };
+	public enum boolean {False , True };
+
 }
